@@ -99,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/03/Proposal-of-Panpan/" data-id="ckr23v2d30000sow46bnz6bcm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/03/Proposal-of-Panpan/" data-id="ckr24crkp0000s4w478zqbz4m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -136,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/06/30/%E4%B8%8D%E4%BC%9A%E7%9A%84%E5%8D%95%E8%AF%8D/" data-id="ckr23v2gl0005sow41sfe28tx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/06/30/%E4%B8%8D%E4%BC%9A%E7%9A%84%E5%8D%95%E8%AF%8D/" data-id="ckr24crkv0002s4w43xfs9pg9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/06/21/%E8%AE%B0%E5%BD%95%E7%94%9F%E6%B4%BB/" data-id="ckr23v2gi0003sow40l51bknt" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/06/21/%E8%AE%B0%E5%BD%95%E7%94%9F%E6%B4%BB/" data-id="ckr24crkx0005s4w43u8i43ya" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +215,43 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/06/20/%E9%87%91%E8%9E%8D%E5%9B%BE%E8%A1%A8/" data-id="ckr23v2gj0004sow44ioq9jua" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/06/20/%E9%87%91%E8%9E%8D%E5%9B%BE%E8%A1%A8/" data-id="ckr24crkw0004s4w41au4bstn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-统计理论学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/19/%E7%BB%9F%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2021-06-19T15:39:24.000Z" itemprop="datePublished">2021-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/19/%E7%BB%9F%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0/">统计理论学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/19/%E7%BB%9F%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0/" data-id="ckr24crkt0001s4w41vyhg5f8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -263,11 +299,13 @@
 </ol>
 <h1 id="系统设计与实现"><a href="#系统设计与实现" class="headerlink" title="系统设计与实现"></a>系统设计与实现</h1><h2 id="定位信息"><a href="#定位信息" class="headerlink" title="定位信息"></a>定位信息</h2><ol>
 <li><font size=4>选择地位方法</font><br>可利用地图服务商（高德）的SDK定位或者原生定位。原生定位更方便，不用获取Key。<br>选择纯GPS定位，因为飞行时可能没有信号。AGPS定位,没有全频段搜星的过程，首次定位速度大大提高，但是需要联网，暂时不用。</li>
-<li><font size=4>需要获得的数据</font><br>位置、高度、地速、空速、上升率，大气温度、修正高度量、修正速度量。</li>
-<li>每隔$ Interval秒$更新定位；</li>
+<li><p><font size=4>需要获得的数据</font><br>位置、高度、地速、空速、上升率，大气温度、修正高度量、修正速度量。</p>
+</li>
+<li><p>每隔$ Interval秒$更新定位；</p>
+</li>
 </ol>
 <h2 id="地形加载"><a href="#地形加载" class="headerlink" title="地形加载"></a>地形加载</h2><h3 id="数据源选择"><a href="#数据源选择" class="headerlink" title="数据源选择"></a>数据源选择</h3><p>选择NASADEM作为数据源</p>
-<h3 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h3><ol start="0">
+<h3 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h3><ol>
 <li>输入参数：当前经纬度位置，半径$r$。</li>
 <li>根据位置、航向和半径r解算出需要的数据范围，该范围大于$r$。因为后面会涉及到旋转，裁剪，需要保证半径r的外接矩形数据都存在。</li>
 <li>取得涉及到的tiles；</li>
@@ -280,10 +318,9 @@
 <p>一经度的距离小于一纬度的距离（只有在赤道上才相等），因此按照top生成的矩阵，密度也更高，$numCols(N))$同样也大于$numRows(M)$。</p>
 <p>纬度的间隔为$\frac{2R}{M-1}$，经度的间隔为$\frac{2R}{N-1}$</p>
 <p>$2R=M-1$第y行的宽度为$2R+2y\cdot tan(\theta) = N-1$</p>
-<p>相对于旧坐标第0点，新坐标$i$的位置在$f=\frac{2R}{M-1}y\cdot tan(\theta)+2R\frac{i}{M-1}$<br>该位置用旧的坐标计算应该在$$j = (N-1)\cdot\frac{f}{2R+2\frac{2R}{M-1}y\cdot tan(\theta)}$$<br>$$j=(N-1)\cdot\frac{\frac{y}{M-1}tan(\theta)+\frac{i}{M-1}}{1+4\frac{y}{M-1}tan(\theta)}$$</p>
-<p>近似成梯形</p>
-<p>$$\frac{z_i-z_l}{z_r-z_l}=\frac{j-j_l}{j_l-j_r}$$<br>$$z_i = z_l+(z_r-z_l)(j-j_l)$$</p>
-<h2 id="信息显示"><a href="#信息显示" class="headerlink" title="信息显示"></a>信息显示</h2><p>输入参数：半径$rkm$内的地形数据、速度、高度、升降率</p>
+<p>相对于旧坐标第0点，新坐标$i$的位置在$f=\frac{2R}{M-1}y\cdot tan(\theta)+2R\frac{i}{M-1}$<br>该位置用旧的坐标计算应该在<script type="math/tex">j = (N-1)\cdot\frac{f}{2R+2\frac{2R}{M-1}y\cdot tan(\theta)}</script></p>
+<script type="math/tex; mode=display">j=(N-1)\cdot\frac{\frac{y}{M-1}tan(\theta)+\frac{i}{M-1}}{1+4\frac{y}{M-1}tan(\theta)}</script><p>近似成梯形</p>
+<script type="math/tex; mode=display">\frac{z_i-z_l}{z_r-z_l}=\frac{j-j_l}{j_l-j_r}</script><script type="math/tex; mode=display">z_i = z_l+(z_r-z_l)(j-j_l)</script><h2 id="信息显示"><a href="#信息显示" class="headerlink" title="信息显示"></a>信息显示</h2><p>输入参数：半径$rkm$内的地形数据、速度、高度、升降率</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
 <li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/magicboy110/archive/2010/12/12/1903927.html">AGPS定位原理浅析</a></p>
 </li>
@@ -293,13 +330,12 @@
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/icydengyw/p/12318522.html">高程数据汇总</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fb89ab396bf8">用Android原生SDK中的api定位</a></p>
-</li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fb89ab396bf8">用Android原生SDK中的api定位</a></li>
 <li><p><a href="E:\MyProgram\Python\HgtRead">Hgt读取，python代码示例</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="http://ejml.org/javadoc/org/ejml/simple/SimpleMatrix.html">SimpleMatrix文档</a></p>
 </li>
-<li><p>DEM数据源:<a target="_blank" rel="noopener" href="http://www.gscloud.cn/sources/index?pid=302&ptitle=DEM%20%E6%95%B0%E5%AD%97%E9%AB%98%E7%A8%8B%E6%95%B0%E6%8D%AE&rootid=1%22%E5%9C%B0%E7%90%86%E7%A9%BA%E9%97%B4%E4%BA%91%22">地理空间云</a></p>
+<li><p>DEM数据源:<a target="_blank" rel="noopener" href="http://www.gscloud.cn/sources/index?pid=302&amp;ptitle=DEM%20%E6%95%B0%E5%AD%97%E9%AB%98%E7%A8%8B%E6%95%B0%E6%8D%AE&amp;rootid=1&quot;地理空间云&quot;">地理空间云</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43936250/article/details/105372699">python大端模式和小端模式</a></p>
 </li>
@@ -323,43 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/06/19/TerrainDisplay/" data-id="ckr23v2d70001sow4fbia7to7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-统计理论学习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/06/19/%E7%BB%9F%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2021-06-19T15:39:24.000Z" itemprop="datePublished">2021-06-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/19/%E7%BB%9F%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0/">统计理论学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/06/19/%E7%BB%9F%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0/" data-id="ckr23v2gf0002sow43c7v5uai" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/06/19/TerrainDisplay/" data-id="ckr24crkw0003s4w4flt58hqz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -416,7 +416,7 @@
           </li>
         
           <li>
-            <a href="/2021/06/19/TerrainDisplay/">TerrainDisplay</a>
+            <a href="/2021/06/19/%E7%BB%9F%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0/">统计理论学习</a>
           </li>
         
       </ul>
